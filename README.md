@@ -1,5 +1,8 @@
 # Setup Instructions
 Please follow the below steps to run the Alutech Media Player as a user.
+
+This is the original [Repository](https://github.com/CCT-Dublin/music-player-ca1-aoe). 
+
 1. **Follow the below link to download the .EXE file**
 
    *This site is hosted by AWS and stored in a S3 storage for security and reliability [Click here to download](https://staging.d33ssjppa4n7wl.amplifyapp.com/).*
