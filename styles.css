@@ -1,0 +1,650 @@
+/* Define root variables for dark and light mode themes */
+:root {
+    /* dark mode */
+    --player-bg: linear-gradient(to bottom right, rgb(23, 36, 150), rgb(250, 157, 234));
+}
+
+/* Define light mode theme */
+body.dark {
+    /* light mode */
+    --player-bg: linear-gradient(to bottom right, rgb(202, 46, 19), rgb(116, 4, 99));
+}
+
+/* Header styling */
+#header {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.1s ease;
+}
+
+/* Styling for the title in the header */
+#winamp-title {
+    color: #fff;
+}
+
+/* Theme toggle button styling */
+#theme-toggle {
+    -webkit-app-region: no-drag;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* General body styling */
+body {
+    background-color: transparent;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Player container styling */
+.player-container {
+    -webkit-app-region: drag;
+    background-image: var(--player-bg);
+    width: 100%;
+    height: 110%;
+    padding: 20px;
+    border-radius: 20px;
+    color: var(--text-color);
+    transition: background-image 0.3s ease;
+    position: relative;
+}
+
+/* Header */
+#header {
+    -webkit-app-region: drag;
+    font-size: 14px;
+    padding: 6px;
+    text-align: left;
+    font-weight: bold;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Slider styling */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px; /* Slightly smaller */
+    width: 12px; /* Slightly smaller */
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider:before {
+    transform: translateX(17px); /* Adjusted translate */
+}
+
+/* Light mode slider styling */
+body.light-mode .slider {
+    background-color: #f0f0f0;
+}
+
+body.light-mode input:checked + .slider {
+    background-color: #bb86fc;
+}
+
+body.light-mode .slider:before {
+    background-color: #424242;
+}
+
+/* Display screen styling */
+#display {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: lime;
+    padding: 12px; /* Slightly smaller padding */
+    font-size: 13px; /* Slightly smaller font */
+    margin-bottom: 8px; /* Slightly smaller margin */
+    border-radius: 10px;
+    text-shadow: 0 0 7px lime; /* Slightly smaller shadow */
+}
+
+/* Shared slider styles */
+input[type="range"] {
+    width: 100%;
+    max-width: 550px; /* Slightly smaller max-width */
+    background: #ccc;
+    border-radius: 2px;
+    outline: none;
+    margin: 8px 0; /* Slightly smaller margin */
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 12px; /* Slightly smaller */
+    width: 12px; /* Slightly smaller */
+    border-radius: 50%;
+    background: #1e90ff;
+    cursor: pointer;
+    border: none;
+}
+
+/* Add hover effect */
+input[type="range"]:hover {
+    background: #999;
+}
+
+/* Seek & volume containers */
+#seek-controls,
+#volume-controls {
+    -webkit-app-region: no-drag;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.8rem; /* Slightly smaller padding */
+}
+
+/* Controls */
+#controls {
+    -webkit-app-region: no-drag;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Slightly smaller gap */
+    margin-top: 8px; /* Slightly smaller margin */
+}
+
+/* Control Buttons */
+.control-btn {
+    -webkit-app-region: no-drag;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem; /* Slightly smaller */
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.control-btn:hover {
+    transform: scale(1.1); /* Slightly smaller hover scale */
+}
+
+#pause {
+    display: none;
+}
+
+/* Hiding the stop button */
+#stop {
+    display: none;
+}
+
+#play {
+    font-size: 1.8rem; /* Slightly smaller */
+}
+
+/* Equalizer */
+#equalizer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 750px; /* Slightly smaller */
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 4px; /* Slightly smaller */
+    margin-top: 8px; /* Slightly smaller */
+}
+
+.eq-bar {
+    width: 6px; /* Slightly smaller */
+    height: 4px; /* Slightly smaller */
+    background: rgb(34, 255, 0);
+    border-radius: 3px;
+    transition: height 0.1s ease-in-out;
+}
+
+/* Lyrics display styling */
+#lyrics-display {
+    -webkit-app-region: no-drag;
+    pointer-events: auto;
+    color: lime;
+    padding: 8px;
+    margin-top: 10px;
+    flex-grow: 1;
+    max-height: none;
+    overflow-y: auto;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: bold;
+
+    white-space: pre-wrap;         /* Preserve line breaks, allow wrapping */
+    word-wrap: break-word;         /* For long words */
+    overflow-wrap: break-word;     /* Fallback for modern browsers */
+    word-break: break-word;        /* Break anywhere if needed */
+
+    display: block;                /* Make sure it's not inline or flex-row */
+    width: 100%;                   /* Force it to match parent width */
+    box-sizing: border-box;        /* Padding doesn’t mess up width */
+}
+
+/* Window controls styling */
+.window-controls {
+    -webkit-app-region: no-drag;
+    display: flex;
+    gap: 6px; /* Slightly smaller */
+    padding: 8px; /* Slightly smaller */
+}
+
+.window-button {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.window-button .icon {
+    position: absolute;
+    font-size: 10px;
+    color: rgb(16, 15, 15);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.window-controls:hover .window-button .icon {
+    opacity: 1;
+}
+
+.window-button.red {
+    background-color: #ff5f57;
+}
+
+.window-button.yellow {
+    background-color: #ffbd2e;
+}
+
+.window-button.green {
+    background-color: #28c840;
+}
+
+/* Scrollbar for Lyrics Display */
+#lyrics-display::-webkit-scrollbar-thumb {
+    background-color: lime;
+    border-radius: 3px;
+}
+
+/* Layout: Main Three Columns */
+#main-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem; /* Slightly smaller */
+    margin-top: 8px; /* Slightly smaller */
+}
+
+/* Column panels */
+#playlist-panel,
+#equalizer-panel,
+#lyrics-panel {
+    -webkit-app-region: no-drag;
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px; /* Slightly smaller */
+    border-radius: 8px; /* Slightly smaller */
+    display: flex;
+    flex-direction: column;
+    height: 450px; /* Slightly smaller */
+    overflow: hidden;
+}
+
+/* Headings inside panels */
+#playlist-panel h3,
+#equalizer-panel h3,
+#lyrics-panel h3 {
+    color: lime;
+    margin-bottom: 8px; /* Slightly smaller */
+    font-weight: bold;
+    text-shadow: 0 0 4px lime; /* Slightly smaller */
+    font-size: 1rem; /* Keep this size if it looks good */
+}
+
+/* Equalizer sliders container */
+#equalizer-controls {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 8px; /* Slightly smaller */
+    padding: 8px; /* Slightly smaller */
+    border-radius: 8px; /* Slightly smaller */
+    display: flex;
+    flex-direction: column;
+    gap: 6px; /* Slightly smaller */
+}
+
+#equalizer-controls h4 {
+    color: lime;
+    margin-bottom: 8px; /* Slightly smaller */
+    font-weight: bold;
+    text-shadow: 0 0 4px lime; /* Slightly smaller */
+    font-size: 0.9rem; /* Keep this size if it looks good */
+}
+
+.eq-slider {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Keep this size if it looks good */
+    font-size: 10px; /* Keep this size if it looks good */
+    color: lime;
+    text-shadow: 0 0 3px lime; /* Slightly smaller */
+}
+
+/* Bottom bar layout - Rearranged and Smaller */
+#bottom-bar {
+    margin-top: 8px; /* Slightly smaller */
+    background: #444;
+    border-radius: 10px;
+    padding: 8px 5px; /* Slightly smaller vertical padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px; /* Slightly smaller gap */
+    height: auto;
+    position: relative; /* For absolute positioning of child elements */
+}
+
+/* Seek Bar - Below Controls */
+#seek-controls {
+    -webkit-app-region: no-drag;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem; /* Smaller padding */
+    width: 95%;
+    box-sizing: border-box;
+}
+
+#seek-controls input[type="range"] {
+    margin: 2px 0; /* Smaller margin */
+    flex-grow: 1;
+}
+
+#seek-controls input[type="range"]::-moz-range-thumb {
+    height: 10px; /* Smaller thumb */
+    width: 10px; /* Smaller thumb */
+}
+
+/* Controls - Centered */
+#controls {
+    -webkit-app-region: no-drag;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Keep this gap if it looks okay */
+    margin: 0;
+}
+
+/* Control Buttons - Smaller Icons */
+.control-btn {
+    -webkit-app-region: no-drag;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem; /* Smaller icon size */
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    padding: 0.2rem 0.4rem; /* Adjust padding for smaller icons */
+}
+
+.control-btn:hover {
+    transform: scale(1.1); /* Slightly smaller hover scale */
+}
+
+#play {
+    font-size: 1.5rem; /* Smaller play icon */
+}
+
+/* Folder Controls - Left Side */
+#folder-controls {
+    -webkit-app-region: no-drag;
+    position: absolute;
+    left: 8px;
+    bottom: 6px; /* Slightly adjusted bottom */
+    display: flex;
+    align-items: center;
+    padding-left: 3px;
+}
+
+#add-folder-container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+#add-folder-container button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.7rem; /* Smaller text */
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0;
+}
+
+/* Volume Controls - Right Side */
+#volume-controls {
+    -webkit-app-region: no-drag;
+    position: absolute;
+    right: 8px;
+    bottom: 6px; /* Slightly adjusted bottom */
+    display: flex;
+    align-items: center;
+    padding: 0 0.4rem;
+}
+
+#volume-controls .volume-icon {
+    font-size: 0.8rem; /* Smaller icon */
+    color: #fff;
+    margin-right: 0.3rem;
+}
+
+#volume-controls input[type="range"] {
+    margin: 2px 0; /* Smaller margin */
+    flex-grow: 1;
+}
+
+#volume-controls input[type="range"]::-moz-range-thumb {
+    height: 10px; /* Smaller thumb */
+    width: 10px; /* Smaller thumb */
+}
+
+/* Style for active/playing playlist item */
+.playlist-item.active,
+.playlist-item:hover {
+    color: lime;
+    text-shadow: 0 0 6px lime;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 0.85rem; /* Slightly smaller */
+}
+
+/* Default style for playlist items */
+.playlist-item {
+    color: #ffffff;
+    background: none;
+    border: none;
+    padding: 4px 0;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.75rem; /* Smaller font */
+    margin-bottom: 1px;
+}
+
+.playlist-item:focus {
+    outline: none;
+    box-shadow: 0 0 4px #ffffff;
+}
+
+#playlist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#playlist li {
+    margin-bottom: 1px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 10px; /* Smaller thumb */
+    width: 10px; /* Smaller thumb */
+}
+
+/* Style for active/playing playlist item */
+.playlist-item.active,
+.playlist-item:hover {
+    color: lime;
+    text-shadow: 0 0 6px lime;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 0.85rem; /* Slightly smaller */
+}
+
+/* Default style for playlist items */
+.playlist-item {
+    color: #ffffff;
+    background: none;
+    border: none;
+    padding: 4px 0;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.75rem; /* Smaller font */
+    margin-bottom: 1px;
+}
+
+.playlist-item:focus {
+    outline: none;
+    box-shadow: 0 0 4px #ffffff;
+}
+
+#playlist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#playlist li {
+    margin-bottom: 1px;
+}
+
+.control-btn.active {
+    color: lime; /* Change the color to green */
+    transform: scale(1.5); 
+}
+
+#playlist li {
+    cursor: grab;
+    user-select: none;
+    padding: 8px;
+    transition: background-color 0.2s;
+}
+
+#playlist li.dragging {
+    opacity: 0.5;
+}
+
+#playlist li.dragover {
+    border-top: 2px solid #4af;
+}
+
+/* Seek controls styling */
+#seek-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+}
+
+#seek-controls span {
+    font-size: 0.75rem;
+    color: #fff;
+    font-family: monospace;
+    min-width: 40px;
+    text-align: center;
+    user-select: none;
+}
+
+#seek-bar {
+    flex: 1;
+}
+
+/* Visualizer styling */
+#visualizer {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#audio-visualizer {
+    width: 100%;
+    height: 100%;
+}
+
+/* Compact player container styling */
+.player-container.compact {
+    -webkit-app-region: drag;
+    width: 100%;
+    height: 70vh;
+    padding: 2;
+    border-radius: 20px;
+    background-color: black;
+}
+
+.player-container.compact #main-content,
+.player-container.compact #header {
+    -webkit-app-region: drag;
+    display: none;
+}
+
+.player-container.compact #bottom-bar {
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    margin-bottom: 10px;
+}
